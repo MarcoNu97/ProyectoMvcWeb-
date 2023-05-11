@@ -3,6 +3,34 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">HOLA MUNDO</h1>
+    
+    <form id="frm">
+        <div class=" col-lg-6 col-lg-offset-3">
+            Usuario
+            <input type="text" name="user"/>
+            pasword
+            <input type="password" name="pass"/>
+            <input type="button" class="btn btn-success" value="entrar" />
+        </div>
+
+
+    </form>
 </div>
+
+<script>
+     $(document).ready(function () { 
+
+          $("#frm").submit(function (e) {
+              e.preventDefault();
+
+              url= "@Url.Content("~/Home/Enter")"
+              parametros = $(this).serialize();
+
+              $.post(url, parametros, function (data) {
+                  if (data==1) {
+                      document.location.href = "@Url.Content("~/")";
+          })
+     })  
+
+</script>
